@@ -32,7 +32,7 @@
     </nav>
     <div class="container">
         <div class="content">
-            <video id="vid" alt="Black And White Dark GIF by Jean Yves Lemoigne" src="https://media0.giphy.com/media/l41lSxVZVzO1l4tDa/giphy.mp4?cid=ecf05e47kz245b4cgbm9rntpfqi36plw8026ivm9gkmxtqdk&amp;ep=v1_gifs_search&amp;rid=giphy.mp4&amp;ct=g" poster="https://media0.giphy.com/media/l41lSxVZVzO1l4tDa/giphy_s.gif?cid=ecf05e47kz245b4cgbm9rntpfqi36plw8026ivm9gkmxtqdk&amp;ep=v1_gifs_search&amp;rid=giphy_s.gif&amp;ct=g" autoplay="" loop="always" playsinline=""></video>
+            <img src="img/Home.jpg" alt="">
         </div>
         <div class="para">
             <h2 class="newh3">C R E A T E.  &nbsp;&nbsp;D E S I G N. &nbsp;&nbsp;P R O D U C E.</h2>
@@ -147,8 +147,8 @@
     </div>
     <div class="container_7">
         <h1>Join our monthly newsletter</h1>
-        <form class="forma" action="http://localhost:3001/submit" method="post">
-            <input type="email" id="email" name="email" placeholder="e-mail">
+        <form class="forma" name="formName" action="post" method="post">
+            <input type="email" id="email" name="emails" placeholder="e-mail">
             <input type="submit" id="submit" value="SUBMIT">
         </form>
         <footer>
@@ -171,5 +171,16 @@
             </div>
         </footer>
         <script src="new.js"></script>
+        <script>
+			const scriptURL = 'https://script.google.com/macros/s/AKfycbx-aHZ-6fGjvNUtYYQlpcGFh1lXggdyqiHirrHiZNjWZvm16lJS1SCAkhVgk-oo-J9p/exec'
+			const form = document.forms['formName']
+		  
+			form.addEventListener('submit', e => {
+			  e.preventDefault()
+			  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => alert("Thank you! your form is submitted successfully." ))
+				.catch(error => console.error('Error!', error.message))
+			})
+		  </script>
 </body>
 </html>
